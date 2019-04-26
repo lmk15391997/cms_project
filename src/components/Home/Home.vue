@@ -9,10 +9,10 @@
     <div class="grid">
       <my-ul>
         <my-li v-for="(grid,index) in grids" :key="index">
-          <a href="">
+          <router-link :to ="grid.router">
             <span :class="grid.className"></span>
             <span>{{grid.title}}</span>
-          </a>
+          </router-link>
         </my-li>
       </my-ul>
     </div>
@@ -24,12 +24,12 @@ export default {
     return {
       imgs:[],//轮播图数据
       grids:[
-        {className:'cms-news',title:'新闻资讯'},
-        {className:'cms-photo',title:'图文分享'},
-        {className:'cms-photo',title:'商品展示'},
-        {className:'cms-news',title:'留言反馈'},
-        {className:'cms-photo',title:'搜索资讯'},
-        {className:'cms-photo',title:'联系我们'},
+        {className:'cms-news',title:'新闻资讯',router:{name:'news.list'}},
+        {className:'cms-photo',title:'图文分享',router:{name:'news.list'}},
+        {className:'cms-commodity',title:'商品展示',router:{name:'news.list'}},
+        {className:'cms-message',title:'留言反馈',router:{name:'news.list'}},
+        {className:'cms-information',title:'搜索资讯',router:{name:'news.list'}},
+        {className:'cms-us',title:'联系我们',router:{name:'news.list'}},
         ]
     }
   },
@@ -39,7 +39,7 @@ export default {
     .then(res=>{
       //  res.data.message=[{img:'图片地址'}] 
       this.imgs = res.data.newslist;
-      console.log(this.imgs)
+      // console.log(this.imgs)
     })
     .catch(err=>console.log('轮播图获取异常'))
   }
@@ -52,8 +52,11 @@ height: 200px;
 img{
   width: 100%;
 }
+a{
+  text-decoration: none;
+}
 /*九宫格样式*/
-.grid ul{
+/* .grid ul{
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -65,19 +68,53 @@ img{
   text-align: center;
   height: 100px;
   line-height: 100px;
-}
+} */
 .cms-news{
   background-image: url(../../assets/img/news.png);
   background-repeat: round;
   height: 50px;
   width:50px;
-  display: inline-block;
+  margin: 10px auto;
+  display: block;
+}
+.cms-commodity{
+  background-image: url(../../assets/img/commodity.png);
+  background-repeat: round;
+  height: 50px;
+  width:50px;
+  margin: 10px auto;
+  display: block;
 }
 .cms-photo{
   background-image: url(../../assets/img/picShare.png);
   background-repeat: round;
   height: 50px;
   width:50px;
-  display: inline-block;
+  margin: 10px auto;
+  display: block;
+}
+.cms-message{
+  background-image: url(../../assets/img/message.png);
+  background-repeat: round;
+  height: 50px;
+  width:50px;
+  margin: 10px auto;
+  display: block;
+}
+.cms-information{
+  background-image: url(../../assets/img/information.png);
+  background-repeat: round;
+  height: 50px;
+  width:50px;
+  margin: 10px auto;
+  display: block;
+}
+.cms-us{
+  background-image: url(../../assets/img/us.png);
+  background-repeat: round;
+  height: 50px;
+  width:50px;
+  margin: 10px auto;
+  display: block;
 }
 </style>
