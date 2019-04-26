@@ -1,6 +1,6 @@
 # cms_project
 
-> A Vue.js project
+> A Vue.js project: 基于vue的电商项目
 
 ## Build Setup
 
