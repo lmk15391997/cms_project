@@ -35,7 +35,7 @@ export default {
   },
   //created创建组件的生命周期函数中，可以操作函数
   created(){
-    this.$axios.post('?&key=63e51670fa2212db538d0560c5e5b584&num=10')
+    this.$axios.post('dongman/?&key=63e51670fa2212db538d0560c5e5b584&num=10')
     .then(res=>{
       //  res.data.message=[{img:'图片地址'}] 
       this.imgs = res.data.newslist;

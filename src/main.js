@@ -12,13 +12,15 @@ import './assets/css/global.css'
 //引入自己的ul和li组件
 import MyUl from '@/components/Common/MyUl'
 import MyLi from '@/components/Common/MyLi'
+import NavBar from '@/components/Common/NavBar'
 //注册全局组件
 Vue.component(MyUl.name,MyUl)
 Vue.component(MyLi.name,MyLi)
+Vue.component(NavBar.name,NavBar)
 // 配置axios
 import Axios from 'axios'
 // 配置公共URL
-Axios.defaults.baseURL = 'http://api.tianapi.com/dongman/?key=63e51670fa2212db538d0560c5e5b584'
+Axios.defaults.baseURL = 'http://api.tianapi.com/'
 Axios.defaults.headers.post['Content-Type'] = 'text/plain'
 Vue.prototype.$axios = Axios
 

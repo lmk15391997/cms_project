@@ -96,5 +96,18 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "main": ".eslintrc.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lmk15391997/cms_project.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lmk15391997/cms_project/issues"
+  },
+  "homepage": "https://github.com/lmk15391997/cms_project#readme"
 }
