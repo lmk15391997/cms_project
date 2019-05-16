@@ -1,38 +1,31 @@
 <template>
   <div class="tmp1">
-    <nav-bar title="新闻列表"/>
-    <div class="demo">
-      <ul>
-        <li v-for='(news,index) in newsList' :key="index">
-          <router-link :to="{name:'news.detail',query:{id:index}}">
-            <img class="" :src="news.picUrl" >
-            <div>
-              <span>{{news.title}}</span>
-              <div class="news-desc"></div>
-              <p>点击数：2 </p>
-              <p>时间：{{news.ctime}}</p>
-            </div>
-          </router-link>
-        </li>
-        <span class="line"></span>
-      </ul>
-    </div>
+    <nav-bar title="新闻标题"/>
+    <div class="news-title">
+      <p>{{newsDetail.title}}</p>
+      <span>新闻来源:{{newsDetail.description}}</span>
+      <span>添加时间:{{newsDetail.ctime}}</span>
+    <div class="news-content" v-html="newsDetail.url">aaa</div>
+  </div>
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
-     newsList:[]
+      newsDetail:{//新闻详情
+
+      }
     }
   },
   created(){
+    //获取路由查询字符串参数id
+    let id =this.$route.query.id;
     this.$axios.get('wxnew/?&key=63e51670fa2212db538d0560c5e5b584&num=20')
-    .then(res=>{
-     this.newsList=res.data.newslist; 
-     //console.log(res.data.newslist)
+    .then( res => {
+      this.newsDetail=res.data.newslist[id]
     })
-    .catch( err => console.log('新闻列表异常',err))
+    .catch( err =>console.log(err))
   }
 };
 </script>
