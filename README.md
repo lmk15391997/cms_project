@@ -1,6 +1,9 @@
 # cms_project
 
-> A Vue.js project: 基于vue的电商项目
+> A Vue.js project: 基于vue的电商项目 半成品 
+
+后台数据关闭了  已经无法打开 
+调试需修改所有url数据
 
 ## Build Setup
 
